@@ -1,7 +1,15 @@
-my_str = input()
-my_list = my_str.split(' ')
-for i in range(1, len(my_list) + 1):
-    if len(my_list[i - 1]) < 10:
-        print(i, '. ', my_list[i - 1], sep='')
+"""Задание 2. Подсчитать четные и нечетные цифры введенного натурального числа."""
+
+
+def numb(num, even=0, odd=0):
+    if not num:
+        return even, odd
+    if num % 10 % 2 == 1:
+        odd += 1
     else:
-        print(i, '. ', my_list[i - 1][0:10], sep='')
+        even += 1
+    return numb(num//10, even, odd)
+
+
+n = int(input('Введите число: '))
+print(numb(n))

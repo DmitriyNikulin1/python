@@ -1,15 +1,16 @@
-count = int(input('Введите количество товаров '))
-my_dict = []
-my_list = []
-my_analys = []
+"""Задание 4. Найти сумму n элементов следующего ряда чисел: 1, -0.5, 0.25, -0.125,… Количество элементов (n) вводится с клавиатуры."""
 
-for i in range(1, count+1):
-    my_dict = dict({'название': input('Введите название товара: '), 'цена': int(input('Введите цену: ')),
-                    'количество': int(input('Введите количество: ')), 'eд': input('Введите единицу измерения: ')})
-    my_list.append((i, my_dict))
-    my_analys = dict(
-        {'название': my_dict.get('название'), 'цена': my_dict.get('цена'),
-         'количество': my_dict.get('количество'), 'ед': my_dict.get('ед')}
-    )
-print(my_list)
-print(my_analys)
+
+def calculation(n, s, c):
+    s = s + c
+    c = c / -2
+    n -= 1
+    if n < 1:
+        return s
+    return calculation(n, s, c)
+
+
+num = int(input('Введите число: '))
+summa = 0
+count = 1
+print(calculation(num, summa, count))

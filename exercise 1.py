@@ -1,23 +1,37 @@
-month = int(input('Введите номер месяца: '))
-lst = ['Зима', 'Весна', 'Лето', 'Осень']
-dct = {1: 'Зима', 2: 'Весна', 3: 'Лето', 4: 'Осень'}
+""" Задание 1. Написать программу, которая будет складывать, вычитать,
+умножать или делить два числа. Числа и знак операции вводятся пользователем.
+После выполнения вычисления программа не должна завершаться, а должна
+запрашивать новые данные для вычислений"""
 
 
-if month == 1 or month == 12 or month == 2:
-    print(f'Результат через список: {lst[0]}')
-    print(f'Результат через словарь: {dct.get(1)}')
+def culc():
+    operator = input('Введите оператор: ')
+    if operator == '0':
+        return
 
-elif month == 3 or month == 4 or month == 5:
-    print(f'Результат через список: {lst[1]}')
-    print(f'Результат через словарь: {dct.get(2)}')
+    elif operator == '+':
+        num1 = int(input('Введите первое число: '))
+        num2 = int(input('Введите второе число: '))
+        print(num1 + num2)
+        return culc()
 
-elif month == 6 or month == 7 or month == 8:
-    print(f'Результат через список: {lst[2]}')
-    print(f'Результат через словарь: {dct.get(3)}')
+    elif operator == '-':
+        num1 = int(input('Введите первое число: '))
+        num2 = int(input('Введите второе число: '))
+        print(num1 - num2)
+        return culc()
 
-elif month == 9 or month == 10 or month == 11:
-    print(f'Результат через список: {lst[3]}')
-    print(f'Результат через словарь: {dct.get(4)}')
+    elif operator == '*':
+        num1 = int(input('Введите первое число: '))
+        num2 = int(input('Введите второе число: '))
+        print(num1 * num2)
+        return culc()
 
-else:
-    print('Такого месяца не существует')
+    elif operator == '/':
+        num1 = int(input('Введите первое число: '))
+        num2 = int(input('Введите второе число: '))
+        print(num1 / num2)
+        return culc()
+
+
+culc()
