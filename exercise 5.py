@@ -1,31 +1,17 @@
-"""Задание 6. В программе генерируется случайное целое число от 0 до 100.
-Пользователь должен его отгадать не более чем за 10 попыток. После каждой
-неудачной попытки должно сообщаться больше или меньше введенное пользователем
-число, чем то, что загадано. Если за 10 попыток число не отгадано,
-то вывести загаданное число."""
+class DivisionByNull:
+    def __init__(self, divider, denominator):
+        self.divider = divider
+        self.denominator = denominator
+
+    @staticmethod
+    def divide_by_null(divider, denominator):
+        try:
+            return divider / denominator
+        except:
+            return f"Деление на ноль недопустимо"
 
 
-from random import randint
-
-
-def func(num, c=0):
-    if c == 10:
-        return num
-
-    ans = int(input())
-
-    if ans == num:
-        return 'Ты отгадал'
-
-    elif num < ans:
-        c += 1
-        print('Слишком больше число')
-        func(num, c)
-    else:
-        c += 1
-        print('Слишком маленькое число')
-        func(num, c)
-
-
-num1 = randint(0, 100)
-print(func(num1))
+div = DivisionByNull(10, 100)
+print(DivisionByNull.divide_by_null(10, 0))
+print(DivisionByNull.divide_by_null(10, 0.1))
+print(div.divide_by_null(100, 0))

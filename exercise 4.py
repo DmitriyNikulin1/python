@@ -1,16 +1,32 @@
-"""Задание 4. Найти сумму n элементов следующего ряда чисел: 1, -0.5, 0.25, -0.125,… Количество элементов (n) вводится с клавиатуры."""
+import copy
 
 
-def calculation(n, s, c):
-    s = s + c
-    c = c / -2
-    n -= 1
-    if n < 1:
-        return s
-    return calculation(n, s, c)
+class Matrix:
+    def __init__(self, matrix):
+        self.matrix = matrix
+
+    def __str__(self):
+        sa = ''
+        for i in range(len(self.matrix)):
+            sa = sa + '\t'.join(map(str, self.matrix[i])) + '\n'
+        return sa
+
+    def __add__(self, other):
+        if len(self.matrix) != len(other.matrix):
+            return None
+        res = copy.deepcopy(self.matrix)
+        for i in range(len(self.matrix)):
+            for k in range(len(self.matrix[i])):
+                res[i][k] = self.matrix[i][k] + other.matrix[i][k]
+        return Matrix(res)
 
 
-num = int(input('Введите число: '))
-summa = 0
-count = 1
-print(calculation(num, summa, count))
+l1 = [[1, 2, 4], [3, 4, 5], [5, 6, 6]]
+l2 = [[11, 21, 41], [31, 41, 51], [51, 61, 61]]
+m = Matrix(l1)
+s = Matrix(l2)
+print(m)
+z = m + s
+print('z ')
+print(z)
+print(type(z))

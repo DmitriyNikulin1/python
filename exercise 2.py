@@ -1,15 +1,15 @@
-"""Задание 2. Подсчитать четные и нечетные цифры введенного натурального числа."""
+class Road:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def intake(self):
+        weigth = 25
+        tickness = 0.05
+        intake = self.length * self.width * weigth * tickness / 1000
+        print(f'Нужно {intake} тон асвальта')
 
 
-def numb(num, even=0, odd=0):
-    if not num:
-        return even, odd
-    if num % 10 % 2 == 1:
-        odd += 1
-    else:
-        even += 1
-    return numb(num//10, even, odd)
-
-
-n = int(input('Введите число: '))
-print(numb(n))
+road = Road(20000, 6)
+road.intake()
+print(road)
